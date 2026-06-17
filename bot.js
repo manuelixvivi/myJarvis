@@ -13,7 +13,7 @@ const getDb = () => {
 const saveDb = (data) => fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
 
 // --- WEBSOCKET SERVER (SaaS CONNECTION) ---
-const wss = new WebSocket.Server({ port: 8080 });
+const wss = new WebSocket.Server({ port: process.env.PORT || 8080 });
 const connectedLaptops = {}; // chatId -> WebSocket
 const pairingPins = {}; // pin -> WebSocket
 
